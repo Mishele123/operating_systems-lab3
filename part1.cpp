@@ -7,15 +7,15 @@ int main()
 {
     try
     {
-        Matrix matrix1(2);
-        matrix1.fillRandom(1, 5);
-        Matrix matrix2(2);
-        matrix2.fillRandom(1, 5);
+        Matrix matrix1 = Matrix::readFromFile("../big_matrix1.bin");
+        //matrix1.fillRandom(1, 5);
+        Matrix matrix2 = Matrix::readFromFile("../big_matrix2.bin");
+        //matrix2.fillRandom(1, 5);
         std::cout << "Matrix 1:" << std::endl;
-        matrix1.writeToFile("../matrix123.bin");
+        //matrix1.writeToFile("small_matrix1..bin");
         //matrix1.print();
         // Matrix m1 = Matrix::readFromFile("../matrix123");
-        // m1.print();
+        //matrix1.print();
         std::cout << "Matrix 2:" << std::endl;
         //matrix2.writeToFile("../matrix321.bin");
         //matrix2.print();
@@ -33,7 +33,8 @@ int main()
         auto time2 = std::chrono::duration_cast<std::chrono::milliseconds>(end2 - start2);
         std::cout << "Matrix1 * Matrix2 (многопоточ) = " << time2.count() << " ms" << std::endl;
 
-        result2.writeToFile("../result2.bin");
+        result2.writeToFile("result2.bin");
+        std::cout << "Result: " << std::endl;
         std::cout << "results written to file" << std::endl;
 
     }
